@@ -1,6 +1,10 @@
-function App() {
-	window.Telegram?.WebApp?.ready()
+import { useEffect } from 'react'
+import { initTelegram } from './telegram'
 
+function App() {
+	useEffect(() => {
+		initTelegram()
+	}, [])
 	const user = window.Telegram?.WebApp?.initDataUnsafe?.user
 	const theme = window.Telegram?.WebApp?.themeParams
 
@@ -86,7 +90,7 @@ function App() {
 					<div className='space-y-3'>
 						{[
 							{
-								label: 'NAME',
+								label: 'NAMEEEEE',
 								value: `${user?.first_name || 'Unknown'} ${
 									user?.last_name || ''
 								}`,
