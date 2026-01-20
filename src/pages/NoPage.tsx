@@ -1,12 +1,6 @@
-import { useEffect } from 'react'
-import { initTelegram } from './telegram'
-import { Button, Image, Input, Placeholder } from '@telegram-apps/telegram-ui'
+import { Image, Placeholder } from '@telegram-apps/telegram-ui'
 
-function App() {
-	useEffect(() => {
-		initTelegram()
-	}, [])
-
+export function NoPage() {
 	return (
 		<div className='container bg-[#141418] h-dvh flex align-middle items-center justify-center w-full'>
 			<div className='flex flex-col items-center justify-center p-5'>
@@ -30,5 +24,3 @@ function App() {
 		</div>
 	)
 }
-
-export default App
