@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { initTelegram } from './telegram'
-import { Button, Image, Input, Placeholder } from '@telegram-apps/telegram-ui'
+import { Image, Placeholder } from '@telegram-apps/telegram-ui'
 
 function App() {
 	useEffect(() => {
