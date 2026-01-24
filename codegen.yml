@@ -1,0 +1,16 @@
+schema: http://localhost:3001/graphql
+documents: src/**/*.{ts,tsx,graphql,gql}
+ignoreNoDocuments: true
+generates:
+  src/graphql/__generated__/graphql.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+    config:
+      avoidOptionals:
+        field: true
+        inputValue: false
+      defaultScalarType: unknown
+      nonOptionalTypename: true
+      skipTypeNameForRoot: true

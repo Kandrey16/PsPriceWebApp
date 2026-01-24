@@ -1,13 +1,17 @@
+export const tg = window?.Telegram?.WebApp
+
 export const initTelegram = () => {
-  if (!window.Telegram?.WebApp) {
-    console.warn('Telegram WebApp not found')
-    return
-  }
+	if (!tg) {
+		console.warn('Telegram WebApp not found')
+		return
+	}
 
-  const tg = window.Telegram.WebApp
+	tg.ready()
+	tg.expand()
 
-  tg.ready()
-  tg.expand()
+	console.log('Telegram initialized')
+}
 
-  console.log('Telegram initialized')
+export const getStartParam = (): string | undefined => {
+	return tg?.initDataUnsafe?.start_param
 }

@@ -3,7 +3,7 @@ export const Profile = () => {
 	const theme = window.Telegram?.WebApp?.themeParams
 
 	// Используем цвета из темы Telegram
-	const bgColor = theme?.bg_color || '#0a0a0a'
+	const bgColor = theme?.bg_color || '#276F81'
 	const textColor = theme?.text_color || '#ffffff'
 	const buttonColor = theme?.button_color || '#3b82f6'
 	const linkColor = theme?.link_color || '#06b6d4'
