@@ -4,7 +4,7 @@ import { Filter } from '../components/Filter'
 import { Input } from '../components/Input'
 import { useGames } from '../hooks/useGames'
 import { useEffect } from 'react'
-import { getStartParam, initTelegram } from '../telegram'
+import { getStartParam } from '../telegram'
 import { routerLinks } from '../route/routes'
 
 export const CatalogPage = () => {

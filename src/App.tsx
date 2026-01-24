@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import { initTelegram } from './telegram'
-import { CatalogPage } from './pages/CatalogPage'
 import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client'
 import { ApolloProvider } from '@apollo/client/react'
 import { BrowserRouter } from 'react-router-dom'
