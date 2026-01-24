@@ -1,10 +1,5 @@
 import { useEffect } from 'react'
-import {
-	Routes,
-	Route,
-	useLocation,
-	useNavigate,
-} from 'react-router-dom'
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 import { tg } from '../telegram'
 import { ROUTES } from './routes'
 import { CatalogPage } from '../pages/CatalogPage'
@@ -18,16 +13,20 @@ export const TelegramBackButton = () => {
 	useEffect(() => {
 		if (!tg || !tg.BackButton) return
 
+		const handleBack = () => {
+			navigate(-1)
+		}
+
 		if (location.pathname !== ROUTES.HOME) {
 			tg.BackButton.show()
+      tg.BackButton.onClick(handleBack)
 		} else {
 			tg.BackButton.hide()
 		}
 
-		tg.BackButton.click(() => navigate(-1))
 
 		return () => {
-			tg?.BackButton.offClick()
+			tg?.BackButton.offClick(handleBack)
 		}
 	}, [location.pathname, navigate])
 
