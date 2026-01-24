@@ -22,13 +22,13 @@ export const TelegramBackButton = () => {
 		if (location.pathname !== ROUTES.HOME) {
 			tg.BackButton.show()
 		} else {
-			tg.BackBuuton.hide()
+			tg.BackButton.hide()
 		}
 
 		tg.BackButton.click(() => navigate(-1))
 
 		return () => {
-			tg.BackButton.offClick()
+			tg?.BackButton.offClick()
 		}
 	}, [location.pathname, navigate])
 
