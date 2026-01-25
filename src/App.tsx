@@ -5,8 +5,10 @@ import { ApolloProvider } from '@apollo/client/react'
 import { BrowserRouter } from 'react-router-dom'
 import { AppRouter } from './route/AppRouter'
 
+const API_URL = import.meta.env.VITE_APP_API_URL
+
 const client = new ApolloClient({
-	link: new HttpLink({ uri: 'http://localhost:3001/graphql' }),
+	link: new HttpLink({ uri: `${API_URL}/graphql` }),
 	cache: new InMemoryCache(),
 })
 
