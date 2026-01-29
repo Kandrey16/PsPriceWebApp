@@ -9,10 +9,8 @@ export const NoPage = () => {
 					src='https://xelene.me/telegram.gif'
 					className='block w-36 h-36 p-2.5 bg-amber-200'
 					style={{
-						// display: 'block',
 						width: '256px',
 						height: '256px',
-						// padding: '10px',
 					}}
 				/>
 				<Placeholder

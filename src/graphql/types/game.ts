@@ -3,7 +3,7 @@ export type Game = {
 	slug: string
 	title: string
 	rating: number | null
-	GameImage: { url: string ; type: string }[] | null
+	GameImage: { url: string; type: string }[] | null
 	GameLanguageSupport:
 		| { languageType: string; language: { name: string; code: string } }[]
 		| null
@@ -17,7 +17,7 @@ export type Game = {
 						region: { code: string; name: string }
 						Price: {
 							price: number
-              originalPrice: number
+							originalPrice: number
 							currency: string
 							type: string
 							discountPercent: number
@@ -30,4 +30,8 @@ export type Game = {
 
 export type GetAllGamesQuery = {
 	games: Game[]
+}
+
+export type GetGameBySlug = {
+	game: Game
 }

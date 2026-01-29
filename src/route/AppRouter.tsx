@@ -5,6 +5,7 @@ import { ROUTES } from './routes'
 import { CatalogPage } from '../pages/CatalogPage'
 import { GamePage } from '../pages/GamePage'
 import { Profile } from '../pages/Profile'
+import { useTelegramTheme } from '../hooks/useTelegramTheme'
 
 export const TelegramBackButton = () => {
 	const navigate = useNavigate()
@@ -13,17 +14,18 @@ export const TelegramBackButton = () => {
 	useEffect(() => {
 		if (!tg || !tg.BackButton) return
 
+		useTelegramTheme();
+
 		const handleBack = () => {
 			navigate(-1)
 		}
 
 		if (location.pathname !== ROUTES.HOME) {
-			tg.BackButton.show()
-      tg.BackButton.onClick(handleBack)
+			tg.BackButton?.show()
+			tg.BackButton.onClick(handleBack)
 		} else {
 			tg.BackButton.hide()
 		}
-
 
 		return () => {
 			tg?.BackButton.offClick(handleBack)
@@ -39,7 +41,7 @@ export const AppRouter = () => {
 			<TelegramBackButton />
 			<Routes>
 				<Route path={ROUTES.HOME} element={<CatalogPage />} />
-				<Route path={ROUTES.GAME} element={<GamePage />} />
+				<Route path='/game/:slug' element={<GamePage />} />
 				<Route path={ROUTES.PROFILE} element={<Profile />} />
 			</Routes>
 		</>

@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
-import { Card } from '../components/Card'
+import { GameCard } from '../components/Card'
 import { Filter } from '../components/Filter'
-import { Input } from '../components/Input'
+import { CustomInput } from '../components/Input'
 import { useGames } from '../hooks/useGames'
 import { useEffect } from 'react'
 import { getStartParam } from '../telegram'
@@ -9,6 +9,10 @@ import { routerLinks } from '../route/routes'
 
 export const CatalogPage = () => {
 	const navigate = useNavigate()
+
+	const onCardClick = (slug: string) => {
+		navigate(`/game/${slug}`)
+	}
 
 	useEffect(() => {
 		const startParam = getStartParam()
@@ -22,16 +26,22 @@ export const CatalogPage = () => {
 	const { games } = useGames()
 
 	return (
-		<div className='flex flex-col items-center max-w-3xl mx-4'>
-			<p className='text-white p-6'>PS Price</p>
-			<div className='flex flex-row w-full gap-3'>
-				<Input />
+		<div
+			className='flex flex-col bg-tg-bg items-center max-w-3xl mx-4'
+		>
+			<p className='p-6'>PS Price</p>
+			<div className='flex w-full gap-3'>
+				<CustomInput />
 				<Filter />
 			</div>
 			<div className='mt-4 w-full overflow-x-auto overscroll-x-contain'>
 				<div className='flex gap-3 snap-x px-1'>
 					{games.map((game) => (
-						<Card key={game.id} data={game} />
+						<GameCard
+							key={game.id}
+							data={game}
+							onClick={() => onCardClick(game.slug)}
+						/>
 					))}
 				</div>
 			</div>
